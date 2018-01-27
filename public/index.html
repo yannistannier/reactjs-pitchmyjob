@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en" class="no-js css-menubar">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+
+    <link rel="apple-touch-icon" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/images/apple-touch-icon.png">
+    <link rel="shortcut icon" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/images/favicon.ico">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/css/bootstrap.min.css?v2.2.0">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/css/bootstrap-extend.min.css?v2.2.0">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/css/site.min.css">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/animsition/animsition.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/asscrollable/asScrollable.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/switchery/switchery.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/intro-js/introjs.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/slidepanel/slidePanel.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/flag-icon-css/flag-icon.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/chartist/chartist.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/widgets/chart.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/dashboard/v1.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/uikit/modals.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/uikit/dropdowns.min.css?v2.2.0">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/apps/forum.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/apps/mailbox.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/apps/projects.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/fonts/web-icons/web-icons.min.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/fonts/material-design/material-design.min.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/fonts/brand-icons/brand-icons.min.css">
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+
+    <!-- Others -->
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/pages/login-v3.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/pages/profile_v3.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/apps/work.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/pages/user.min.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/examples/css/pages/errors.min.css">
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/css/quill.snow.css">
+
+    <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/css/custom.css">
+
+
+    <style>
+        .geosuggest__suggests {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            max-height: 25em;
+            padding: 0;
+            margin-top: -1px;
+            background: #fff;
+            border: 2px solid #267dc0;
+            border-top-width: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            list-style: none;
+            z-index: 5;
+            -webkit-transition: max-height 0.2s, border 0.2s;
+            transition: max-height 0.2s, border 0.2s;
+        }
+        .geosuggest__suggests--hidden {
+            max-height: 0;
+            overflow: hidden;
+            border-width: 0;
+        }
+        .geosuggest__item {
+            font-size: 18px;
+            font-size: 1rem;
+            padding: .5em .65em;
+            cursor: pointer;
+        }
+        .geosuggest__item:hover,
+        .geosuggest__item:focus {
+            background: #f5f5f5;
+        }
+        .geosuggest__item--active {
+            background: #267dc0;
+            color: #fff;
+        }
+        .geosuggest__item--active:hover,
+        .geosuggest__item--active:focus {
+            background: #ccc;
+        }
+
+        .notification-bar-message {
+        -ms-word-wrap: break-word;
+        word-wrap: break-word;
+        }
+        .notification-bar-message a,
+        .notification-bar-message label {
+        color: #fff;
+        }
+        .notification-bar-message a:hover {
+        color: #ccd5db;
+        text-decoration: none;
+        }
+        .notification-list {
+        position: fixed;
+        z-index: 999999;
+        pointer-events: none;
+        top: 86px;
+        right: 20px;
+        }
+        .notification-list * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        }
+        .notification-list > div {
+        position: relative;
+        width: 300px;
+        padding: 15px 20px;
+        margin: 0 0 6px;
+        overflow: hidden;
+        color: #a3afb7;
+        pointer-events: auto;
+        filter: alpha(opacity=95);
+        background-repeat: no-repeat;
+        background-position: 15px center;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: 3px;
+        opacity: .95;
+        }
+        .notification-list > .notification-bar-shadow {
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .23);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .23);
+        }
+        .notification-list > .notification-bar-shadow:hover {
+        -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .23);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .23);
+        }
+        .notification-list > :hover {
+        cursor: pointer;
+        filter: alpha(opacity=100);
+        opacity: 1;
+        }
+        .notification-list > .notification-bar-success:not(.notification-bar-just-text),
+        .notification-list > .notification-bar-info:not(.notification-bar-just-text),
+        .notification-list > .notification-bar-warning:not(.notification-bar-just-text),
+        .notification-list > .notification-bar-error:not(.notification-bar-just-text) {
+        padding-left: 50px;
+        }
+        .notification-list > .notification-bar-success:not(.notification-bar-just-text):before,
+        .notification-list > .notification-bar-info:not(.notification-bar-just-text):before,
+        .notification-list > .notification-bar-warning:not(.notification-bar-just-text):before,
+        .notification-list > .notification-bar-error:not(.notification-bar-just-text):before {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        font-family: "Web Icons";
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 300;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+
+        text-rendering: auto;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        }
+        .notification-list > .notification-bar-success {
+        color: #fff;
+        }
+        .notification-list > .notification-bar-success:not(.notification-bar-just-text):before {
+        content: "\f192";
+        }
+        .notification-list > .notification-bar-info {
+        color: #fff;
+        }
+        .notification-list > .notification-bar-info:not(.notification-bar-just-text):before {
+        content: "\f19e";
+        }
+        .notification-list > .notification-bar-warning {
+        color: #fff;
+        }
+        .notification-list > .notification-bar-warning:not(.notification-bar-just-text):before {
+        content: "\f1a0";
+        }
+        .notification-list > .notification-bar-error {
+        color: #fff;
+        }
+        .notification-list > .notification-bar-error:not(.notification-bar-just-text):before {
+        content: "\f19a";
+        }
+        .notification-list.notification-bar-top-center > div,
+        .notification-list.notification-bar-bottom-center > div {
+        width: 300px;
+        margin-right: auto;
+        margin-left: auto;
+        }
+        .notification-list.notification-bar-top-full-width > div,
+        .notification-list.notification-bar-bottom-full-width > div {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        border-radius: 0;
+        }
+        .notification-bar {
+        background-color: #e4eaee;
+        }
+        .notification-bar-success {
+        background-color: #5cd29d;
+        }
+        .notification-bar-error {
+        background-color: #fa7a7a;
+        }
+        .notification-bar-info {
+        background-color: #77d6e1;
+        }
+        .notification-bar-warning {
+        background-color: #f4b066;
+        }
+        .notification-bar-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        background-color: #000;
+        filter: alpha(opacity=10);
+        opacity: .1;
+        }
+        /*Responsive Design*/
+        @media all and (max-width: 240px) {
+        .notification-list > div {
+        width: 11em;
+        padding: 8px 8px 8px 50px;
+        }
+        }
+        @media all and (min-width: 241px) and (max-width: 480px) {
+        .notification-list > div {
+        width: 18em;
+        padding: 8px 8px 8px 50px;
+        }
+        }
+        @media all and (min-width: 481px) and (max-width: 768px) {
+        .notification-list > div {
+        width: 25em;
+        padding: 15px 15px 15px 50px;
+        }
+        }
+
+        .full-height{
+          height:100%;
+        }
+
+        .no-underline a{
+          text-decoration:none !important;
+        }
+        .btn-icon .icon {
+            margin: -1px 0 0 !important;
+        }
+        .list-group-item-unread { background-color: #eff6fd; }
+
+        .app-candidacy{width:auto !important;}
+        .app-candidacy a{cursor:pointer}
+
+        .cv-panel-3 li{width:33.333333%; text-align:center}
+        .cv-panel-2 li{width:50%; text-align:center}
+
+        .app-panel .timeline-item{     margin-bottom: 10px; }
+
+        .ql-link, .ql-clean{display:none}
+
+        /* Slide panel */
+        .slide-pane__overlay { z-index: 99999 !important; }
+        .slide-pane__header { display: none !important; }
+        .slide-pane__content { padding: 0 !important; }
+        .slide-pane, .slidePanel-right, .slidePanel-left { width: 800px !important; }
+        @media (max-width: 800px) {
+            .slide-pane, .slidePanel-right, .slidePanel-left { width: 100% !important; }
+        }
+        .slidePanel-inner-section { border-bottom: none; }
+        .app-panel .nav-tabs .nav-item + .nav-item { margin-left: 0; }
+        .app-panel .nav-tabs .nav-item + .nav-item { margin-left: 0; }
+
+        .app-candidacy .subject{width:auto}
+
+        .app-mailbox .page-content .table .metas {
+          color: #a3afb7;
+        }
+
+        .app-mailbox .page-content .table .metas > span {
+          position: relative;
+          margin-right: 10px;
+        }
+
+        .app-mailbox .page-content .table .metas > span + span:before {
+          content: "";
+          position: absolute;
+          width: 2px;
+          height: 2px;
+          top: 50%;
+          left: -8px;
+          background-color: #a7b0b8;
+        }
+
+        .resumes-first-panel{
+              background-color: rgba(88, 64, 64, 0);
+            border: 1px dashed rgba(175, 166, 166, 0.69);
+        }
+
+        .resumes-dashboard .panel {min-height:140px;}
+
+      .resumes-dashboard  .app-projects .overlay-panel {
+          background: rgba(38, 50, 56, 0.51);
+          border-radius: 1px;
+      }
+
+      .page-login-v3 .panel{min-width:400px; width:auto;}
+      .app-work.app-panel .job-title {max-width: 500px;}
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/html5shiv/html5shiv.min.js"></script>
+      <![endif]-->
+    <!--[if lt IE 10]>
+      <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/media-match/media.match.min.js"></script>
+      <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/respond/respond.min.js"></script>
+      <![endif]-->
+    <!-- Scripts -->
+     <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/breakpoints/breakpoints.js"></script>
+
+    <script type="text/javascript">Breakpoints();</script>
+    <title>React App</title>
+  </head>
+  <body class="animsition ">
+    <div id="root" class="full-height"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjwGyNL0CFzOMQt4viTCfgCAjlnaFXvNM&amp;libraries=places"></script>
+
+    <!-- Core  -->
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/jquery/jquery.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/tether/tether.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/bootstrap/bootstrap.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/animsition/animsition.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/mousewheel/jquery.mousewheel.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/asscrollbar/jquery-asScrollbar.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/asscrollable/jquery-asScrollable.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
+
+    <!-- Plugins -->
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/switchery/switchery.min.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/intro-js/intro.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/screenfull/screenfull.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/jvectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/matchheight/jquery.matchHeight-min.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/vendor/peity/jquery.peity.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/State.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Component.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Base.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Config.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Section/Menubar.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Section/GridMenu.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Section/Sidebar.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Section/PageAside.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Plugin/menu.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/config/colors.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/config/tour.js"></script>
+
+    <!-- Page -->
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/base/assets/js/Site.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin/asscrollable.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin/switchery.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin/matchheight.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin/peity.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/spitchapp-dev/harvey/static/global/js/Plugin/material.js"></script>
+
+
+
+    <script>
+        $(document).ready(function($) {
+            Site.run();
+        });
+    </script>
+  </body>
+</html>
